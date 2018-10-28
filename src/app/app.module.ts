@@ -9,10 +9,8 @@ import { fakeBackendProvider } from './_helpers';
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
-import { AlertComponent } from './_directives';
-import { AuthGuard } from './_guards';
+import { AlertComponent } from './_components';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
-import { AlertService, AuthenticationService, UserService } from './_services';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register';
@@ -32,10 +30,6 @@ import { RegisterComponent } from './register';
         RegisterComponent
     ],
     providers: [
-        AuthGuard,
-        AlertService,
-        AuthenticationService,
-        UserService,
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
